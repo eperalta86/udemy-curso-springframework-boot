@@ -9,12 +9,12 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>cl.com.universidadspring</groupId>
-	<artifactId>ControlClientesV2</artifactId>
+	<artifactId>ControlClientesCRUDBasico</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ControlClientesV2</name>
+	<name>ControlClientesCRUDBasico</name>
 	<description>Control Clientes</description>
 	<properties>
-		<java.version>15</java.version>
+		<java.version>18</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
