@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import cl.com.universidadspring.dominio.Persona;
 import cl.com.universidadspring.service.IPersonaService;
-import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@Slf4j
 public class InicioController {
 	
 	@Autowired
@@ -24,7 +22,7 @@ public class InicioController {
 	public String inicio(Model model) {
 		
 		var personas = personaService.listarPersonas();
-		log.info("ejecutando el controlador Spring MVC");
+		//log.info("ejecutando el controlador Spring MVC");
 		model.addAttribute("personas", personas);
 		
 		return "index";

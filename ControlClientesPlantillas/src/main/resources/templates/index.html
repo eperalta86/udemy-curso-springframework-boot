@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 	</head>
 	<body>
-		<header th:replace="layout/plantilLa :: header"></header>
+		<header th:replace="layout/plantilla :: header"></header>
 		<a th:href="@{/agregar}">[[#{persona.crear}]]</a>
 		
 		<div th:if="${personas != null and !personas.empty}">
@@ -33,7 +33,7 @@
 			[[#{persona.lista-vacia}]]
 		</div >
 		
-		<footer th:replace="layout/plantilLa :: footer"></footer>
+		<footer th:replace="layout/plantilla :: footer"></footer>
 
 	</body>
 </html>
