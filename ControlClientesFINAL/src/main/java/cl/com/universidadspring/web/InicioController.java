@@ -1,7 +1,7 @@
 package cl.com.universidadspring.web;
 
 import javax.validation.Valid;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
@@ -15,16 +15,26 @@ import cl.com.universidadspring.domain.Persona;
 import cl.com.universidadspring.service.IPersonaService;
 
 @Controller
+@Slf4j
 public class InicioController {
-	
-	@Autowired
-	private IPersonaService personaService;
-	
-	@GetMapping("/")
-	public String inicio(Model model, @AuthenticationPrincipal User user) {
+    
+    @Autowired
+    private IPersonaService personaService;
+    
+    @GetMapping("/")
+    public String inicio(Model model, @AuthenticationPrincipal User user){
+        var personas = personaService.listarPersonas();
+        log.info("ejecutando el controlador Spring MVC");
+        log.info("usuario que hizo login:" + user);
 		
-		var personas = personaService.listarPersonas();
 		model.addAttribute("personas", personas);
+		
+		var saldoTotal = 0D;
+        for(var p: personas){
+            saldoTotal += p.getSaldo();
+        }
+        model.addAttribute("saldoTotal", saldoTotal);
+        model.addAttribute("totalClientes", personas.size());
 		
 		return "index";
 	}
